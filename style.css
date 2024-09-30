@@ -1,3 +1,4 @@
+ 
 * {
    margin: 0; 
     box-sizing: border-box;
@@ -10,7 +11,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    padding: 15px 0 0 35px;
+    padding: 25px 55px;
     font-family: "Montserrat", sans-serif;
     position: relative;
     min-height: 100vh;
@@ -27,35 +28,46 @@ body::before {
 }
 
 .header {
-    overflow: hidden;
+    display: flex;
     z-index: 2;
     position: relative;
+    justify-content: space-between;
 }
-.nav {
-    float: left;
+
+.nav-left {
+    display: flex;
 }
-.nav ul  {
+.nav-left input[type="checkbox"], .nav-left i {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.nav-left i {
+    color: white;
+    font-size: 45px;
+    pointer-events: none;
+}
+
+.nav-left ul {
     padding: 0;
-}
-
-.nav li {
     list-style-type: none;
-    display: inline-block;
-    padding: 5px;
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
 }
 
-.nav li a {
+.nav-left a {
     text-decoration: none;
     color: white;
     font-weight: 800;
     font-size: 18px;
 }
-.nav li a:hover {
-    color: #c9c9c9;
-}
 
-.nav-right {
-    float: right;
+.nav-left a:hover {
+    color: #c9c9c9;
 }
 .btn-login {
     background-color: #AD7D5C;
@@ -67,11 +79,12 @@ body::before {
 }
 
 .container {
-    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
     z-index: 2;
     position: relative;
 }
-
 .title {
     color: #66422B;
     margin-bottom: 20px;
@@ -80,11 +93,14 @@ body::before {
     color: white;
     font-size: 50px;
     margin-bottom: 30px;
-    display: inline-block;
 }
+
 .info {
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
+
 .description {
     color: white;
     width: 500px;
@@ -98,25 +114,34 @@ body::before {
     padding: 7px 18px;
     border-radius: 10px;
     display: inline-block;
+    margin-bottom: 25px;
+    align-self: flex-start;
 }
 .btn-order:hover {
     background-color: #00000040;
 }
+
 .products {
-    overflow: hidden;
+    /*overflow: hidden;
     position: absolute;
     top: 0;
-    right: 50px;
+    right: 50px;*/
+    display: flex;
+    column-gap: 20px;
+    align-self: flex-end;
+    margin-top: -190px;
 }
+
 .card {
     width: 250px;
-    float: left;
-    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
 }
 .card-head {
     background-image: url('images/coffee-4618705_640.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     width: 100%;
     height: 200px;
     border-top-right-radius: 5px;
@@ -142,5 +167,67 @@ body::before {
     text-decoration: none;
     display: block;
     text-align: right;
+    margin-bottom: 20px;
 }
 
+/*@media screen and (max-width: 1425px) {
+    .card {
+        width: 210px;
+    }
+}*/
+
+@media screen and (max-width: 1391px) {
+    .description {
+        width: 100%;
+    }
+    .products {
+        /*position: static;
+        float: right;*/
+        margin-top: -60px;
+    }
+}
+
+@media screen and (max-width: 1070px) {
+    .products {
+        align-self: normal;
+        margin-top: 0;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 25px;
+    }
+}
+
+@media screen and (max-width: 629px) {
+    .products {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+    }
+    .card {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    body {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .nav-left input[type="checkbox"] {
+        display: inline-block;
+        opacity: 0;
+    }
+    .nav-left i {
+        display: inline-block;
+    }
+    .nav-left ul {
+        flex-direction: column;
+        row-gap: 15px;
+        display: none;
+        margin-top: 46px;
+        transition: margin-top 2s;
+    }
+    .nav-left input[type="checkbox"]:checked ~ ul {
+        display: block;
+    }
+}
