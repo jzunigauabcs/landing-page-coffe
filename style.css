@@ -37,25 +37,26 @@ body::before {
 .nav-left {
     display: flex;
 }
-.nav-left input[type="checkbox"], .nav-left i {
+.nav-left input[type="checkbox"] {
     position: absolute;
     width: 45px;
     height: 45px;
     top: 0;
     left: 0;
-    display: none;
+    display: none;    
 }
 .nav-left i {
-    color: white;
+    color: #ffffff;
     font-size: 45px;
-    pointer-events: none;
+    display: none;
 }
 
 .nav-left ul {
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
     padding: 0;
     list-style-type: none;
-    display: flex;
-    column-gap: 15px;
     align-items: center;
 }
 
@@ -79,8 +80,6 @@ body::before {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
     margin-top: 100px;
     z-index: 2;
     position: relative;
@@ -129,7 +128,7 @@ body::before {
     display: flex;
     column-gap: 20px;
     align-self: flex-end;
-    margin-top: -190px;
+    margin-top: -185px;
 }
 
 .card {
@@ -170,52 +169,46 @@ body::before {
     margin-bottom: 20px;
 }
 
-/*@media screen and (max-width: 1425px) {
-    .card {
-        width: 210px;
-    }
-}*/
-
-@media screen and (max-width: 1391px) {
+@media screen and (max-width: 1390px) {
     .description {
         width: 100%;
     }
+
     .products {
-        /*position: static;
-        float: right;*/
         margin-top: -60px;
     }
 }
 
-@media screen and (max-width: 1070px) {
+@media screen and (max-width: 1079px) {
     .products {
-        align-self: normal;
         margin-top: 0;
-        flex-wrap: wrap;
+        align-self: self-start;
         justify-content: space-between;
-        row-gap: 25px;
+        flex-wrap: wrap;
+        row-gap: 20px;
     }
 }
 
 @media screen and (max-width: 629px) {
+    body {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
     .products {
         flex-direction: column;
         align-items: center;
-        row-gap: 20px;
     }
+
     .card {
         width: 300px;
     }
 }
 
 @media screen and (max-width: 575px) {
-    body {
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-    .nav-left input[type="checkbox"] {
+    .nav-left input[type='checkbox'] {
         display: inline-block;
         opacity: 0;
+
     }
     .nav-left i {
         display: inline-block;
@@ -225,7 +218,6 @@ body::before {
         row-gap: 15px;
         display: none;
         margin-top: 46px;
-        transition: margin-top 2s;
     }
     .nav-left input[type="checkbox"]:checked ~ ul {
         display: block;
